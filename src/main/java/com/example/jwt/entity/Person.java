@@ -26,4 +26,5 @@ public class Person {
     @Column(unique = true)
     private String email;
     private String password;
+    private boolean isAdmin;
 }
