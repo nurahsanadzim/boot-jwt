@@ -3,7 +3,6 @@ package com.example.crud.service;
 import com.example.crud.entity.Person;
 import com.example.crud.repository.PersonRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,7 +10,6 @@ import java.util.Optional;
 @Service
 public class PersonService {
 
-    @Autowired
     private final PersonRepository personRepository;
 
     public PersonService(PersonRepository personRepository) {
