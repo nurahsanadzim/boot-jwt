@@ -2,9 +2,9 @@ package com.example.crud.service;
 
 import com.example.crud.entity.Person;
 import com.example.crud.repository.PersonRepository;
-
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-
+import jakarta.persistence.EntityExistsException;
 import java.util.Optional;
 
 @Service
@@ -17,8 +17,15 @@ public class PersonService {
     }
 
     public Person savePerson(Person person) {
-        return personRepository.save(person);
+        try {
+            return personRepository.save(person);
+        } catch (DataIntegrityViolationException e) {
+            throw new RuntimeException("Username or email already exists", e);
+        } catch (EntityExistsException e) {
+            throw new RuntimeException("Person already exists", e);
+        }
     }
+
 
     public Optional<Person> getPerson(Long id) {
         return personRepository.findById(id);
