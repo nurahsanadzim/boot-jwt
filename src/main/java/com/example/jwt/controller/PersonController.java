@@ -1,10 +1,10 @@
-package com.example.crud.controller;
-
-import com.example.crud.entity.Person;
-import com.example.crud.service.PersonService;
+package com.example.jwt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.jwt.entity.Person;
+import com.example.jwt.service.PersonService;
 
 import java.util.Optional;
 

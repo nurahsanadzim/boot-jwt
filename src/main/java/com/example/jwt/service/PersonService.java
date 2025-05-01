@@ -1,11 +1,13 @@
-package com.example.crud.service;
+package com.example.jwt.service;
 
 import java.util.Optional;
 import jakarta.persistence.EntityExistsException;
-import com.example.crud.entity.Person;
-import com.example.crud.repository.PersonRepository;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import com.example.jwt.entity.Person;
+import com.example.jwt.repository.PersonRepository;
 
 @Service
 public class PersonService {

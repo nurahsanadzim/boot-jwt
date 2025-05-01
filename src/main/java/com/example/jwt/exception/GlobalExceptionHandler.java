@@ -1,4 +1,4 @@
-package com.example.crud.exception;
+package com.example.jwt.exception;
 
 import java.time.LocalDateTime;
 import java.util.Map;
