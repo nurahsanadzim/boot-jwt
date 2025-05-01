@@ -1,11 +1,11 @@
 package com.example.crud.service;
 
+import java.util.Optional;
+import jakarta.persistence.EntityExistsException;
 import com.example.crud.entity.Person;
 import com.example.crud.repository.PersonRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import jakarta.persistence.EntityExistsException;
-import java.util.Optional;
 
 @Service
 public class PersonService {
