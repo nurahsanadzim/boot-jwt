@@ -20,7 +20,6 @@ public class SecurityConfig {
             )
             .formLogin(login -> login.disable())
             .headers(headers -> headers
-                .frameOptions().sameOrigin()
                 .contentSecurityPolicy(csp -> csp.policyDirectives("frame-ancestors 'self'"))  // Set CSP to allow embedding only from the same origin
             );
 
