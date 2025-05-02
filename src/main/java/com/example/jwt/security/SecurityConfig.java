@@ -14,13 +14,13 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/login").permitAll()   // Allow login path
+                .requestMatchers("/api/auth/login").permitAll()
                 .requestMatchers("/h2-console/**").permitAll() 
                 .anyRequest().authenticated()
             )
             .formLogin(login -> login.disable())
             .headers(headers -> headers
-                .frameOptions().sameOrigin()  // Allow the H2 console to be embedded in a frame
+                .frameOptions().sameOrigin()
                 .contentSecurityPolicy(csp -> csp.policyDirectives("frame-ancestors 'self'"))  // Set CSP to allow embedding only from the same origin
             );
 
