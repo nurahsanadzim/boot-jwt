@@ -2,7 +2,6 @@ package com.example.jwt.initializer;
 
 import com.example.jwt.entity.Person;
 import com.example.jwt.service.PersonService;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
