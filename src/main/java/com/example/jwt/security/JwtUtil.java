@@ -1,21 +1,41 @@
 package com.example.jwt.security;
 
-import io.jsonwebtoken.Claims;
+// import io.jsonwebtoken.Claims;
+// import io.jsonwebtoken.Jwts;
+// import io.jsonwebtoken.security.Keys;
+// import javax.crypto.SecretKey;
+// import java.util.Date;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import java.security.Key;
+import java.util.Base64;
+
 import javax.crypto.SecretKey;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JwtUtil {
-    private static final String SECRET = "${jwt.secret}";
-    private final SecretKey secretKey = Keys.hmacShaKeyFor(SECRET.getBytes());
+    // private static final String SECRET = "${jwt.secret}";
+    // private final SecretKey secretKey = Keys.hmacShaKeyFor(SECRET.getBytes());
 
     @Value("${jwt.expiration}")
     private Long exp;
 
+    private SecretKey key = Jwts.SIG.HS256.key().build();
+
     public String generateToken(String username) {
+
+        System.out.println("current key: ");
+        System.out.println(key.getAlgorithm());
+        System.out.println(key.getFormat());
+        System.out.println(key.getEncoded());
+        System.out.println(key.getClass());
+        System.out.println(Base64.getEncoder().encodeToString(key.getEncoded()));
+
+
         // return Jwts.builder()
         //     .subject(username)
         //     .issuedAt(new Date())
